@@ -4,15 +4,25 @@
 using namespace std;
 
 void bubbleSort(int tab[10]) {
-	//tri_à_bulles(Tableau T)
-		//pour i allant de(taille de T) - 1 à 1 => decrementation
-			//pour j allant de 0 à i - 1 => incrementation
-				//si T[j + 1] < T[j]
-					//échanger(T[j + 1], T[j])
+	for (int i = 9; i > 0; i--) {
+		for (int j = 0; j <= (i - 1); j++) {
+			if (tab[j + 1] < tab[j]) {
+
+				int temp = tab[j + 1];
+				tab[j + 1] = tab[j];
+				tab[j] = temp;
+				for (int k = 0; k < 10; k++) {
+					cout << "|" << tab[k];
+				}
+				cout << "|" << endl;
+			}
+		}
+	}
 }
 
 
 int main() {
+
 	srand(time(NULL));
 
 	int tab[10] = { 0 };
@@ -32,5 +42,13 @@ int main() {
 	for (int i = 0; i < 10; i++) {
 		cout << "tab[" << i << "] = " << tab[i] << endl;
 	}
+
+	cout << "BUBBLE SORT" << endl;
+	bubbleSort(tab);
+
+	/*for (int i = 0; i < 10; i++) {
+		cout << "tab[" << i << "] = " << tab[i] << endl;
+	}*/
+	
 	return 0;
 }
